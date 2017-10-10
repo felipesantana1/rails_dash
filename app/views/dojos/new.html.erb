@@ -1,0 +1,28 @@
+<h1>Add a new dojo!</h1>
+<br>
+<a href='/'>Home</a>
+<br>
+<br>
+<form action='/dojos' method='post'>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    Name: <input type='text' name='name'>
+    <br>
+    <br>
+    Street: <input type='text' name='street'>
+    <br>
+    <br>
+    City: <input type='text' name='city'>
+    <br>
+    <br>
+    State: <input type='text' name='state'>
+    <br>
+    <br>
+    <input type='submit' value='Add New Dojo!'>
+</form>
+<br>
+<br>
+<% if flash[:error] %>
+<% flash[:error].each do |error| %>
+    <b><p><%=error%></p></b>
+<% end %>
+<% end %>
