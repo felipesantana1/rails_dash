@@ -1,0 +1,28 @@
+<h1>Edit <%= @dojo.name %></h1>
+<br>
+<a href='/'>Home</a> <a href='/dojos/show/<%= @dojo.id %>'>Show</a>
+<br>
+<br>
+<form action='/dojos/edit/<%= @dojo.id %>' method='post'>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    Name: <input type='text' name='name' value="<%= @dojo.name %>">
+    <br>
+    <br>
+    Street: <input type='text' name='street' value="<%= @dojo.street %>">
+    <br>
+    <br>
+    City: <input type='text' name='city' value="<%= @dojo.city %>">
+    <br>
+    <br>
+    State: <input type='text' name='state' value="<%= @dojo.state %>">
+    <br>
+    <br>
+    <input type='submit' value='Update'>
+</form>
+<br>
+<br>
+<% if flash[:error] %>
+<% flash[:error].each do |error| %>
+    <b><p><%=error%></p></b>
+<% end %>
+<% end %>

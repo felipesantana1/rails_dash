@@ -17,9 +17,34 @@ class DojosController < ApplicationController
     else
 
       flash[:error] = dojo.errors.full_messages
-      
+
       redirect_to '/dojos/new'
       
     end
+  end
+
+  def show
+    @dojo = Dojo.find(params[:id])
+    render 'display.html.erb'
+  end
+
+  def edit
+    @dojo = Dojo.find(params[:id])
+  end
+  
+  def update
+    dojo = Dojo.find(params[:id])
+    dojo.name = params[:name]
+    dojo.street = params[:street]
+    dojo.city = params[:city]
+    dojo.state = params[:state]
+    dojo.save
+    redirect_to '/'
+  end
+
+  def destroy
+    dojo = Dojo.find(params[:id])
+    dojo.destroy
+    redirect_to '/'
   end
 end
