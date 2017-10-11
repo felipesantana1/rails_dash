@@ -39,6 +39,7 @@ end
 
 group :development do
   gem 'rails-footnotes', '>= 4.0.0', '<5'
+  gem 'hirb'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 

@@ -25,6 +25,7 @@ class DojosController < ApplicationController
 
   def show
     @dojo = Dojo.find(params[:id])
+    @students = Student.all
     render 'display.html.erb'
   end
 
@@ -38,8 +39,14 @@ class DojosController < ApplicationController
     dojo.street = params[:street]
     dojo.city = params[:city]
     dojo.state = params[:state]
-    dojo.save
-    redirect_to '/'
+
+    if dojo.valid?
+      dojo.save
+      redirect_to '/'
+    else
+      flash[:error] = dojo.errors.full_messages
+      redirect_to "/dojos/edit/#{params[:id]}"
+    end
   end
 
   def destroy

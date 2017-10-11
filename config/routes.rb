@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
+
   get '' => 'dojos#index'
   get 'dojos/new' => 'dojos#new'
   post 'dojos' => 'dojos#create'
   get 'dojos/show/:id' => 'dojos#show'
   get 'dojos/edit/:id' => 'dojos#edit'
   post 'dojos/edit/:id' => 'dojos#update'
-  post 'dojos/destroy/:id' => 'dojos#destroy'
+  delete 'dojos/destroy/:id' => 'dojos#destroy'
+  get 'dojos/:dojo_id/students/new' => 'students#new'
+  get 'dojos/:dojo_id/students/:id' => 'students#index'
+  get 'dojos/:dojo_id/edit/students/:id' => 'students#edit'
+  post 'dojos/:dojo_id/edit/students/:id' => 'students#update'
+  post 'dojos/:dojo_id/students' => 'students#create'
+  delete 'dojos/:dojo_id/students/:id' => 'students#destroy'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

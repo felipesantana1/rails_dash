@@ -1,0 +1,4 @@
+<h1><%= @student.first_name %> from <%= @dojo.name %></h1>
+<p>Email: <%=@student.email%> </p>
+
+<a href='/'>Home</a> <a href='/dojos/<%= @dojo.id %>/edit/students/<%= @student.id %>'>Edit</a> <a href="/dojos/show/<%= @dojo.id %>">Back</a>
